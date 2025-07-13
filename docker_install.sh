@@ -10,13 +10,13 @@ echo "--- Dockerのインストールを開始します ---"
 
 # 1. 既存のDockerバージョンのアンインストール（オプション）
 echo "既存のDocker関連パッケージをアンインストールします（もしあれば）。"
-apt-get remove -y docker docker-engine docker.io containerd runc 2>/dev/null
+apt remove -y docker docker-engine docker.io containerd runc 2>/dev/null
 echo "アンインストールが完了しました。"
 
 # 2. 必要なパッケージのインストール
 echo "必要なパッケージをインストールします..."
-apt-get update
-apt-get install -y ca-certificates curl gnupg
+apt update
+apt install -y ca-certificates curl gnupg
 if [ $? -ne 0 ]; then
   echo "必要なパッケージのインストールに失敗しました。スクリプトを終了します。"
   exit 1
@@ -48,8 +48,8 @@ echo "Dockerリポジトリの追加が完了しました。"
 
 # 5. Docker Engineのインストール
 echo "Docker Engine、Containerd、Docker Composeをインストールします..."
-apt-get update
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt update
+apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 if [ $? -ne 0 ]; then
   echo "Docker Engineのインストールに失敗しました。スクリプトを終了します。"
   exit 1
