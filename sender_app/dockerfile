@@ -1,0 +1,27 @@
+# ベースとなるOSイメージ
+FROM ubuntu:22.04
+
+# タイムゾーン設定など、対話的なプロンプトを無効にする
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 必要なパッケージをインストール
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-tk \
+    libgl1-mesa-glx \
+    libegl1-mesa \
+    libxkbcommon-x11-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# 必要なPythonライブラリをインストール
+RUN pip3 install PyQt6 \
+    && pip3 install jsonsocket \
+    && pip3 install pillow
+
+# アプリケーションのコードをコンテナにコピー
+WORKDIR /app
+COPY hyouji.py .
+
+# コンテナ起動時に実行するコマンド
+CMD ["python3", "hyouji.py"]
