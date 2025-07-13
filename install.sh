@@ -3,7 +3,7 @@
 echo " Project HAKKO Transporter 初回セットアップを開始します..."
 
 # --- 必要なツールのインストール ---
-echo "🔧 VagrantとVirtualBoxをインストール中..."
+echo "VagrantとVirtualBoxをインストール中..."
 sudo apt update
 sudo apt install -y vagrant virtualbox
 

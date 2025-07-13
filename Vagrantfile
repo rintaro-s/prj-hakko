@@ -21,8 +21,8 @@ Vagrant.configure("2") do |config|
   end
 
   # --- ネットワーク設定 ---
-  # ★お兄ちゃんの環境に合わせて変更してね！ (例: enp3s0)
-  config.vm.network "public_network", bridge: "wlp0s20f3"
+  # 環境に合わせて変更して (例: enp3s0)
+  config.vm.network "public_network", bridge: "enp1s0"
 
   # --- ファイルの同期 ---
   config.vm.synced_folder "sender_app", "C:/vagrant/sender_app"

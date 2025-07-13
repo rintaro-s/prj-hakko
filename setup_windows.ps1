@@ -34,4 +34,21 @@ $shortcut = $shell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = $targetPath
 $shortcut.Save()
 
+# --- グリーンバック画像をデスクトップ背景に設定 ---
+Write-Host "Setting green background image..."
+$greenBackgroundPath = "C:\vagrant\install_files\green_background.png"
+if (!(Test-Path $greenBackgroundPath)) {
+    Write-Host "Green background image not found. Please place 'green_background.png' in 'install_files'."
+} else {
+    Add-Type -TypeDefinition @"
+    using System.Runtime.InteropServices;
+    public class Wallpaper {
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+    }
+"@
+    [Wallpaper]::SystemParametersInfo(20, 0, $greenBackgroundPath, 1)
+    Write-Host "Green background image set successfully."
+}
+
 Write-Host "Setup finished! Please restart the VM if needed."

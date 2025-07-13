@@ -23,15 +23,14 @@ HOST = '192.168.0.215'
 PORT = 50000
 
 # --- 設定項目 ---
-# 透過させたい背景色（今回は白）
-BACKGROUND_COLOR = (255, 255, 255)
+# 透過させたい背景色（今回はグリーンバック）
+BACKGROUND_COLOR = (0, 255, 0)
 # 色の判定の甘さ（大きいほど、背景色に近い色を透過させる）
 THRESHOLD = 1
 # --- ここまで ---
 
 selected_hwnd = None
 client_socket = None
-# クロップ領域のオフセットを共有するための変数
 crop_offset = (0, 0)
 client_area_pos = (0, 0)
 
