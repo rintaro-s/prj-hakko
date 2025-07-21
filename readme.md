@@ -1,15 +1,15 @@
-# Project HAKKO Transporter
+# Project Transporter
 
 ## これは何？
 
-Windowsでしか動かない「HakkoAI」みたいなアプリを、コマンド一発でUbuntu上に表示させるためのツールです。  
+Windowsでしか動かない「」みたいなアプリを、コマンド一発でUbuntu上に表示させるためのツールです。  
 
 ---
 
 ## 特徴
 
 - **全自動セットアップ**  
-  `win11.iso` とアプリの `hakko_ai_setup.exe`を所定の場所に置いたら、あとはスクリプトを実行するだけです。
+  `win11.iso` とアプリの `.exe`を所定の場所に置いたら、あとはスクリプトを実行するだけです。
 
 ---
 
@@ -29,7 +29,7 @@ Windowsでしか動かない「HakkoAI」みたいなアプリを、コマンド
 
 ### ファイルの準備
 
-`install_files/` フォルダに、`green_background.png`(←(0, 255, 0)の緑で) と`win11.iso` と `hakko_ai_setup.exe` （←英語、日本、中国版でインストーラーの名前が違うのでこの名前に統一してください）を入れてください。
+`install_files/` フォルダに、`green_background.png`(←(0, 255, 0)の緑で) と`win11.iso` と `_ai_setup.exe` （←英語、日本、中国版でインストーラーの名前が違うのでこの名前に統一してください）を入れてください。
 
 ---
 
@@ -50,8 +50,8 @@ chmod +x install.sh
 初回セットアップが終わった後、アプリを起動したいときは、いつでもこのコマンドを実行します。
 
 ```bash
-chmod +x start_hakko.sh
-./start_hakko.sh
+chmod +x .sh
+./start_.sh
 ```
 
 これで、裏でWindowsが起動し、Ubuntuのデスクトップにアプリの画面が表示されます。
@@ -63,10 +63,10 @@ chmod +x start_hakko.sh
 - **install.sh**  
   必要なツールをインストールし、Vagrantを使ってWindows仮想環境の初回セットアップを行います。最初に一度だけ実行するスクリプトです。
 
-- **start_hakko.sh**  
+- **start_.sh**  
   セットアップ済みのWindows仮想環境をバックグラウンドで起動し、Ubuntu側で表示用クライアントを立ち上げます。普段使い用のスクリプトです。
 
-- **stop_hakko.sh**  
+- **stop_.sh**  
   起動しているアプリと仮想環境を、安全に両方ともシャットダウンします。
 
 ---
