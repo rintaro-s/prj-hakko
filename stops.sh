@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "🛑 HAKKO AI Transporter を停止します..."
+echo "🛑  AI Transporter を停止します..."
 
 # 実行中のDockerコンテナを探して停止
-CONTAINER_ID=$(docker ps -q --filter ancestor=hakko-receiver)
+CONTAINER_ID=$(docker ps -q --filter ancestor=-receiver)
 if [ -n "$CONTAINER_ID" ]; then
     echo "受信クライアントのコンテナを停止します..."
     docker stop $CONTAINER_ID
