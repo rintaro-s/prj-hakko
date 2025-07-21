@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo " HAKKO AI Transporter を起動します..."
+echo "  AI Transporter を起動します..."
 
 # --- Windows仮想マシンをバックグラウンドで起動 ---
 echo " Windowsをバックグラウンドで起動中..."
@@ -23,7 +23,7 @@ docker run --rm -it \
     --net=host \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    hakko-receiver
+    -receiver
 
 if [ $? -ne 0 ]; then
     echo " 受信クライアントの起動に失敗しました。"
